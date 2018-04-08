@@ -20,17 +20,14 @@ def exit_code(job):
         return int(f.read().strip())
 
 def main():
-    #для авторизации
     token = environ.get('GH_TOKEN')
     job = environ.get('JOB')
 
-    #чтение вывода скрипта сборки
     body = log(job)
     if (body == ''):
         return
 
-    #код возврата
-    res = exit_code(job)
+     res = exit_code(job)
 
 g = Github(token)
 repo = g.get_repo('9CHWW0x/TRPO')
@@ -41,7 +38,6 @@ ISSUE = 'issue'
         issue_num = num(branch[len(ISSUE):])
         issue = repo.get_issue(issue_num)
 else:
-    # Do not do anything on successful nightly build
     if res == 0:
         return;
         issue = repo.create_issue('Nightly build failed', 'Travis nightly build failed')
