@@ -1,6 +1,6 @@
 languege: python
 
-install
+install:
 - pip3 install pep8
 
 natrix:
