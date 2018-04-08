@@ -1,7 +1,7 @@
 languege: python
 
 install:
-- pip3 install pep8
+- pip install pep8
 
 natrix:
     include:
