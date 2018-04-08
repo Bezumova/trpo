@@ -1,13 +1,28 @@
 language: python
 
+services:
+- docker
+
 install:
-- pip install pep8
+- pip install -r requirements.txt
 
 matrix:
-    include:
-    - stage: Test
-      env: JOB=test
-    - stage: Analyse
-      env: JOB=analyse
+include:
+- stage: Test
+env: JOB=test
+- stage: Test
+env: JOB=pycodestyle
 
-script: ./.travis/$JOB.sh
+script:
+- .travis/$JOB.sh 2>&1 | tee /tmp/$JOB.log
+- echo "${PIPESTATUS[0]}" > /tmp/$JOB.res
+
+deploy:
+- provider: script
+script: python .travis/build_result.py
+skip_cleanup: true
+- provider: script
+script: .travis/docker_push.sh
+
+before_install:
+- docker build -t 9chww0x/trpo .
