@@ -1,3 +1,10 @@
 languege: python
 
-script: ./.travis/test.sh
+matrix:
+include:
+- stage: Test
+env: JOB=test
+- stage: Analyse
+env: JOB=analyse
+
+script: ./.travis/$JOB.sh
