@@ -8,6 +8,7 @@ def calc(ch, a, b):
         '/': a / b
     }[ch]
 
+
 def calc_line(line):
-    (ch, a ,b) = tuple(filter(None, line.split(' ')))
+    (ch, a, b) = tuple(filter(None, line.split(' ')))
     return calc(ch, a, b)
