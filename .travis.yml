@@ -25,4 +25,4 @@ skip_cleanup: true
 script: .travis/docker_push.sh
 
 before_install:
-- docker build -t 9chww0x/trpo .
+- docker build -t Bezumova/trpo .
