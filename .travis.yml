@@ -1,6 +1,6 @@
 languege: python
 
-natrix:
+matrix:
     include:
     - stage: Test
       env: JOB=test
