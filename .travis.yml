@@ -1,9 +1,9 @@
-languege: python
+language: python
 
 install:
 - pip install pep8
 
-natrix:
+matrix:
     include:
     - stage: Test
       env: JOB=test
