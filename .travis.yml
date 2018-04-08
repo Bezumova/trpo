@@ -1,0 +1,3 @@
+languege: python
+
+script: ./.travis/test.sh
