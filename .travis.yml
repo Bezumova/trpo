@@ -10,8 +10,8 @@ matrix:
 include:
 - stage: Test
 env: JOB=test
-- stage: Test
-env: JOB=pycodestyle
+- stage: Analyse
+env: JOB=analyse
 
 script:
 - .travis/$JOB.sh 2>&1 | tee /tmp/$JOB.log
@@ -25,4 +25,4 @@ skip_cleanup: true
 script: .travis/docker_push.sh
 
 before_install:
-- docker build -t Bezumova/trpo .
+- docker build -t bezumova/trpo .
