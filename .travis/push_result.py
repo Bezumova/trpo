@@ -30,7 +30,7 @@ def main():
      res = exit_code(job)
 
 g = Github(token)
-repo = g.get_repo('9CHWW0x/TRPO')
+repo = g.get_repo('bezumova/TRPO')
 
 branch = git_current_branch()
 ISSUE = 'issue'
